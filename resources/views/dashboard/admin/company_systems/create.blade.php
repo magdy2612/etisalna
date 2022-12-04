@@ -24,8 +24,8 @@
                             </div>
 
                             <div class="form-group row">
-                                <label>Link</label>
-                                <input type="text" class="form-control" name="link"/>
+                                <label>URL</label>
+                                <input type="text" class="form-control" name="url"/>
                             </div>
 
                             <div class="form-group row">

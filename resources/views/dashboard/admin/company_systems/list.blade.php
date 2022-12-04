@@ -21,6 +21,7 @@
                     <th>End Date</th>
                     <th></th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,12 @@
                     <td>{{ $resource['system']->name }}</td>
                     <td>{{ $resource->start_date }}</td>
                     <td>{{ $resource->end_date }}</td>
+                    <td>
+                      <a href="{{ route('company.system.users.index', $resource->id) }}"
+                         class="btn btn-block btn-primary">
+                        Users
+                      </a>
+                    </td>
                     <td>
                       <a href="{{ route('company.systems.edit', [$company_id, $resource->id]) }}"
                          class="btn btn-block btn-primary">

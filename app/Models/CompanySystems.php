@@ -18,7 +18,7 @@ class CompanySystems extends Model
      * @var array
      */
     protected $fillable = [
-        'company_id', 'system_id', 'link', 'start_date', 'end_date'
+        'company_id', 'system_id', 'url', 'start_date', 'end_date'
     ];
 
     public function company(): BelongsTo

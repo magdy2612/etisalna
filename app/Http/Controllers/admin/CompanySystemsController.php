@@ -76,7 +76,7 @@ class CompanySystemsController extends Controller
     public function update(UpdateRequest $request, int $id): RedirectResponse
     {
         $resource = CompanySystems::find($id);
-        $resource->update($request->only(['link', 'start_date', 'end_date']));
+        $resource->update($request->only(['url', 'start_date', 'end_date']));
         $request->session()->flash('message', 'Successfully edited resource');
         return redirect()->route('company.systems.index', $resource->company_id);
     }

@@ -13,8 +13,8 @@
                                 @csrf
                                 {{method_field('put')}}
                                 <div class="form-group row">
-                                    <label>Link</label>
-                                    <input type="text" class="form-control" name="link" value="{{ $resource->link }}"/>
+                                    <label>URL</label>
+                                    <input type="text" class="form-control" name="url" value="{{ $resource->url }}"/>
                                 </div>
                                 <div class="form-group row">
                                     <label>Start Date</label>
