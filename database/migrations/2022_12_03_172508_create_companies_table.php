@@ -18,6 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('crm_id');
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

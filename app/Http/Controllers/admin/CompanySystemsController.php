@@ -5,13 +5,12 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CompanySystems\StoreRequest;
 use App\Http\Requests\CompanySystems\UpdateRequest;
-use App\Models\System;
 use App\Models\CompanySystems;
+use App\Models\System;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class CompanySystemsController extends Controller
@@ -42,6 +41,7 @@ class CompanySystemsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param int $company_id
      * @param StoreRequest $request
      * @return RedirectResponse
      */
@@ -50,25 +50,15 @@ class CompanySystemsController extends Controller
         $resource = new CompanySystems();
         $resource->create(array_merge(['company_id' => $company_id], $request->all()));
         $request->session()->flash('message', 'Successfully created resource');
-        return redirect()->route('company.system.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\CompanySystems $companySystems
-     * @return Response
-     */
-    public function show(CompanySystems $companySystems)
-    {
-        //
+        return redirect()->route('company.systems.index', $company_id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\CompanySystems $companySystems
-     * @return Response
+     * @param int $company_id
+     * @param int $id
+     * @return Application|Factory|View
      */
     public function edit(int $company_id, int $id)
     {
@@ -80,12 +70,11 @@ class CompanySystemsController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateRequest $request
-     * @param CompanySystems $companySystems
-     * @return Response
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function update(UpdateRequest $request, int $id)
+    public function update(UpdateRequest $request, int $id): RedirectResponse
     {
-        // dd($request->only(['start_date', 'end_date']));
         $resource = CompanySystems::find($id);
         $resource->update($request->only(['start_date', 'end_date']));
         $request->session()->flash('message', 'Successfully edited resource');
@@ -95,11 +84,15 @@ class CompanySystemsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\CompanySystems $companySystems
-     * @return Response
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy(CompanySystems $companySystems)
+    public function destroy(int $id): RedirectResponse
     {
-        //
+        $resource = CompanySystems::find($id);
+        if ($resource) {
+            $resource->delete();
+        }
+        return redirect()->route('company.systems.index');
     }
 }

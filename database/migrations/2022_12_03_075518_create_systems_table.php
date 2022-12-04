@@ -21,6 +21,7 @@ class CreateSystemsTable extends Migration
             $table->string('icon');
             $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
