@@ -25,7 +25,7 @@
 
                             <div class="form-group row">
                                 <label>Link</label>
-                                <input type="text" class="form-control" name="link" required/>
+                                <input type="text" class="form-control" name="link"/>
                             </div>
 
                             <div class="form-group row">

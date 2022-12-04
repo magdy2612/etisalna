@@ -13,16 +13,16 @@
                                 @csrf
                                 {{method_field('put')}}
                                 <div class="form-group row">
+                                    <label>Link</label>
+                                    <input type="text" class="form-control" name="link" value="{{ $resource->link }}"/>
+                                </div>
+                                <div class="form-group row">
                                     <label>Start Date</label>
                                     <input type="date" class="form-control" name="start_date" value="{{ $resource->start_date }}" required/>
                                 </div>
                                 <div class="form-group row">
                                     <label>End Date</label>
                                     <input type="date" class="form-control" name="end_date" value="{{ $resource->end_date }}" required/>
-                                </div>
-                                <div class="form-group row">
-                                    <label>Link</label>
-                                    <input type="text" class="form-control" name="link" value="{{ $resource->link }}" required/>
                                 </div>
                                 <button class="btn btn-block btn-success" type="submit">{{ __('Save') }}</button>
                                 <a href="{{ route('company.systems.index', $company_id) }}"
