@@ -78,6 +78,7 @@ Route::group(['middleware' => ['get.menu']], function () {
         Route::resource('systems',        'admin\SystemsController');
         Route::resource('companies',        'admin\CompaniesController');
         Route::resource('company/{company_id}/systems',        'admin\CompanySystemsController', ['as' => 'company']);
+        Route::resource('company/systems/{company_system_id}/users',        'admin\CompanySystemUsersController', ['as' => 'company.system']);
         Route::resource('roles',        'RolesController');
         Route::resource('mail',        'MailController');
         Route::get('prepareSend/{id}',        'MailController@prepareSend')->name('prepareSend');
