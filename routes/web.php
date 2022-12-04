@@ -76,6 +76,8 @@ Route::group(['middleware' => ['get.menu']], function () {
         Route::resource('bread',  'BreadController');   //create BREAD (resource)
         Route::resource('users',        'UsersController')->except( ['create', 'store'] );
         Route::resource('systems',        'admin\SystemsController');
+        Route::resource('companies',        'admin\CompaniesController');
+        Route::resource('company/{company_id}/systems',        'admin\CompanySystemsController', ['as' => 'company']);
         Route::resource('roles',        'RolesController');
         Route::resource('mail',        'MailController');
         Route::get('prepareSend/{id}',        'MailController@prepareSend')->name('prepareSend');
