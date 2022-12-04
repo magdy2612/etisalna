@@ -19,6 +19,7 @@ class CreateCompanySystemsTable extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->unsignedBigInteger('system_id');
             $table->foreign('system_id')->references('id')->on('systems')->onDelete('cascade');
+            $table->string('url')->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();
