@@ -24,6 +24,11 @@
                             </div>
 
                             <div class="form-group row">
+                                <label>Link</label>
+                                <input type="text" class="form-control" name="link" required/>
+                            </div>
+
+                            <div class="form-group row">
                                 <label>Start Date</label>
                                 <input type="date" class="form-control" name="start_date" required/>
                             </div>

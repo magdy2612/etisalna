@@ -20,6 +20,10 @@
                                     <label>End Date</label>
                                     <input type="date" class="form-control" name="end_date" value="{{ $resource->end_date }}" required/>
                                 </div>
+                                <div class="form-group row">
+                                    <label>Link</label>
+                                    <input type="text" class="form-control" name="link" value="{{ $resource->link }}" required/>
+                                </div>
                                 <button class="btn btn-block btn-success" type="submit">{{ __('Save') }}</button>
                                 <a href="{{ route('company.systems.index', $company_id) }}"
                                    class="btn btn-block btn-primary">{{ __('Return') }}</a>
